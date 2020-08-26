@@ -1,10 +1,15 @@
 import React from "react";
+import DataProvider from "./Context/DataProvider";
+import Questions from "./Components/Questions";
+import "./App.css";
 
 function App() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <DataProvider>
+      <div className="page-container">
+        <Questions />
+      </div>
+    </DataProvider>
   );
 }
 

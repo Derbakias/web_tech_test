@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+.btn {
+  padding: 5px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.btn:hover {
+  color: #ccc;
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+
+/* Page style */
+.page-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Questions wrapper styles */
+.questions-wrapper {
+  padding: 1rem;
+  max-width: 60%;
+  min-height: 80vh;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.questions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.load-btn {
+  padding: 5px;
+  color: #fff;
+  background: teal;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+/* Question style */
+.question {
+  margin: 0.5rem 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+.column:first-child {
+  width: 80%;
+}
+
+.column:first-child p {
+  max-width: 80%;
+}
+.column:last-child {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.edit-btn {
+  margin-bottom: 5px;
+  width: 100%;
+  color: #fff;
+  background: cornflowerblue;
+}
+
+.delete-btn {
+  width: 100%;
+  color: #fff;
+  background: crimson;
+}
