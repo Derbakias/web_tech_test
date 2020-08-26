@@ -49,8 +49,12 @@ function Questions() {
           </button>
         )}
       </div>
-      {questions.map((question: any, index: number) => (
-        <Question key={index} data={question} />
+      {questions.map((question: any, index: string) => (
+        <Question
+          key={index}
+          data={question}
+          index={index}
+        />
       ))}
     </div>
   );

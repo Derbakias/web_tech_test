@@ -45,7 +45,7 @@ p {
 /* Questions wrapper styles */
 .questions-wrapper {
   padding: 1rem;
-  max-width: 60%;
+  width: 60%;
   min-height: 80vh;
   border: 1px solid grey;
   border-radius: 10px;
