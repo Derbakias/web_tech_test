@@ -16,11 +16,11 @@ function Questions() {
 
   const getQuestions = () => {
     const url = `https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=multiple`;
+    setLoading(true);
 
     axios
       .get(url)
       .then((res) => {
-        setLoading(true);
         let data = res.data.results.slice(0, 2);
         setQuestions((prev: any) => {
           return [...data, ...prev];
