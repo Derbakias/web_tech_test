@@ -3,6 +3,7 @@ import { DataContext } from "../Context/DataProvider";
 import Question from "../Components/Question";
 import axios from "axios";
 import Spinner from "../Assets/Spinning.gif";
+import EditView from "./EditView";
 
 function Questions() {
   const {
@@ -10,6 +11,7 @@ function Questions() {
     setQuestions,
     loading,
     setLoading,
+    editView,
   } = useContext(DataContext);
 
   const getQuestions = () => {
@@ -19,8 +21,10 @@ function Questions() {
       .get(url)
       .then((res) => {
         setLoading(true);
-        let data = res.data.results.slice(0, 3);
-        setQuestions((prev: any) => [...prev.concat(data)]);
+        let data = res.data.results.slice(0, 2);
+        setQuestions((prev: any) => {
+          return [...data, ...prev];
+        });
         const timeOut = setTimeout(() => {
           setLoading(false);
           clearTimeout(timeOut);
@@ -33,31 +37,34 @@ function Questions() {
     getQuestions();
     // eslint-disable-next-line
   }, []);
-
-  return (
-    <div className="questions-wrapper">
-      <div className="questions-header">
-        <h3>Questions</h3>
-        {loading ? (
-          <img src={Spinner} alt="" />
-        ) : (
-          <button
-            onClick={getQuestions}
-            className="btn load-btn"
-          >
-            Load more question
-          </button>
-        )}
+  if (!editView?.status) {
+    return (
+      <div className="questions-wrapper">
+        <div className="questions-header">
+          <h3>Questions</h3>
+          {loading ? (
+            <img src={Spinner} alt="" />
+          ) : (
+            <button
+              onClick={getQuestions}
+              className="btn load-btn"
+            >
+              Load more question
+            </button>
+          )}
+        </div>
+        {questions.map((question: any, index: string) => (
+          <Question
+            key={index}
+            data={question}
+            index={index}
+          />
+        ))}
       </div>
-      {questions.map((question: any, index: string) => (
-        <Question
-          key={index}
-          data={question}
-          index={index}
-        />
-      ))}
-    </div>
-  );
+    );
+  } else {
+    return <EditView />;
+  }
 }
 
 export default Questions;

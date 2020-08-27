@@ -14,7 +14,22 @@ const Question: React.FC<Props> = ({
   data: { question, category, difficulty },
   index,
 }) => {
-  const { setQuestions } = useContext(DataContext);
+  const {
+    questions,
+    setQuestions,
+    setEditView,
+  } = useContext(DataContext);
+
+  const setView = (e: any) => {
+    let editedItem = parseInt(e.target.dataset.index);
+    setEditView((prev: any) => ({
+      ...prev,
+      status: true,
+      item: questions.filter(
+        (item: any, index: number) => index === editedItem
+      ),
+    }));
+  };
 
   const removeQuestion = (e: any) => {
     let removeItem = parseInt(e.target.dataset.index);
@@ -26,8 +41,6 @@ const Question: React.FC<Props> = ({
         }
       }),
     ]);
-
-    console.log(typeof removeItem);
   };
   return (
     <div className="question">
@@ -37,7 +50,13 @@ const Question: React.FC<Props> = ({
         <p>{difficulty}</p>
       </div>
       <div className="column">
-        <button className="btn edit-btn">Edit</button>
+        <button
+          data-index={index}
+          onClick={setView}
+          className="btn edit-btn"
+        >
+          Edit
+        </button>
         <button
           data-index={index}
           onClick={removeQuestion}

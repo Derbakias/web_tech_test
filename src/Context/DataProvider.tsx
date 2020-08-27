@@ -9,6 +9,13 @@ type DataContextType = {
   setQuestions: any;
   loading: boolean;
   setLoading: any;
+  editView: {
+    status: boolean;
+    item: any;
+  };
+  setEditView: any;
+  error: string;
+  setError: any;
 };
 const DataContext = createContext<Partial<DataContextType>>(
   {}
@@ -20,6 +27,11 @@ type Props = {
 const DataProvider = ({ children }: Props) => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [editView, setEditView] = useState({
+    status: false,
+    item: undefined,
+  });
+  const [error, setError] = useState("");
 
   return (
     <DataContext.Provider
@@ -28,6 +40,10 @@ const DataProvider = ({ children }: Props) => {
         setQuestions,
         loading,
         setLoading,
+        editView,
+        setEditView,
+        error,
+        setError,
       }}
     >
       {children}

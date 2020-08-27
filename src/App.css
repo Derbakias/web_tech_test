@@ -27,6 +27,7 @@ p {
 
 .btn:hover {
   color: #ccc;
+  opacity: 0.8;
 }
 
 .btn:active {
@@ -35,6 +36,7 @@ p {
 
 /* Page style */
 .page-container {
+  margin: 2rem 0;
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -42,8 +44,9 @@ p {
   align-items: center;
 }
 
-/* Questions wrapper styles */
-.questions-wrapper {
+/* Questions styles */
+.questions-wrapper,
+.edit-view-wrapper {
   padding: 1rem;
   width: 60%;
   min-height: 80vh;
@@ -104,4 +107,55 @@ p {
   width: 100%;
   color: #fff;
   background: crimson;
+}
+
+/* Edit view */
+
+.edit-view-wrapper .row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.edit-view-wrapper input {
+  padding: 0.5rem;
+}
+
+.edit-view-wrapper .btn {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.edit-view-wrapper .btn-add-answer {
+  color: #fff;
+  background: cornflowerblue;
+}
+.edit-view-wrapper .btn-remove-answer {
+  color: #fff;
+  background: coral;
+}
+
+.answer-wrapper .row {
+  margin: 0.8rem 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answer-wrapper input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  outline: none;
+}
+
+.answer-wrapper .cancel-btn {
+  color: #fff;
+  background: darkcyan;
+}
+
+.answer-wrapper .submit-btn {
+  color: #fff;
+  background: darkslateblue;
 }
